@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/kostaspt/gouted/pkg/checker"
 	"github.com/spf13/cobra"
-	"gouted/pkg/checker"
 	"io/ioutil"
 	"log"
 )

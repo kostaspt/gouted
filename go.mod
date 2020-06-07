@@ -1,4 +1,4 @@
-module gouted
+module github.com/kostaspt/gouted
 
 go 1.14
 
