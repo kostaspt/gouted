@@ -8,7 +8,7 @@ $ go get github.com/kostaspt/gouted
 
 ## Usage
 ```console
-$ gouted ./go.mod
+$ gouted check ./go.mod
 ```
 
 #### Note
