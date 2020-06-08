@@ -1,31 +1,23 @@
 package checker
 
-import "github.com/hashicorp/go-version"
+import (
+	"golang.org/x/mod/semver"
+)
 
 type Package struct {
 	Name           string
-	CurrentVersion *version.Version
-	LatestVersion  *version.Version
+	CurrentVersion string
+	LatestVersion  string
 }
 
 func NewPackage(name, currentVersion, nextVersion string) (*Package, error) {
-	cv, err := version.NewVersion(currentVersion)
-	if err != nil {
-		return nil, err
-	}
-
-	lv, err := version.NewVersion(nextVersion)
-	if err != nil {
-		return nil, err
-	}
-
 	return &Package{
 		Name:           name,
-		CurrentVersion: cv,
-		LatestVersion:  lv,
+		CurrentVersion: currentVersion,
+		LatestVersion:  nextVersion,
 	}, nil
 }
 
 func (p Package) isOutdated() bool {
-	return p.CurrentVersion.LessThan(p.LatestVersion)
+	return semver.Compare(p.LatestVersion, p.CurrentVersion) > 0
 }
