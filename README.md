@@ -2,12 +2,12 @@
 > Check for go outdated packages
 
 ## Install
-```console
+```bash
 $ go get github.com/kostaspt/gouted
 ```
 
 ## Usage
-```console
+```bash
 $ gouted check ./go.mod
 ```
 
